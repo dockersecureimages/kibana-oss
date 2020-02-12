@@ -1,5 +1,5 @@
-### Kibana does not support the current Node.js version v10.15.3. Please use Node.js v10.15.2.
-FROM node:10.15.2-alpine
+### Kibana does not support the current Node.js version v10.15.2. Please use Node.js v10.18.0.
+FROM node:10.18.0-alpine3.11
 LABEL website="Secure Docker Images https://secureimages.dev"
 LABEL description="We secure your business from scratch."
 LABEL maintainer="hireus@secureimages.dev"
@@ -41,8 +41,8 @@ RUN apk add --no-cache bash su-exec ;\
     apk del --purge .build-deps ;\
     rm -rf /tmp/* /var/cache/apk/*
 
-# Fixing CVE-2019-xxxx
-RUN apk add --upgrade --no-cache --repository http://dl-cdn.alpinelinux.org/alpine/edge/main openssl binutils nghttp2 cyrus-sasl musl=1.1.19-r11
+# Fixing CVE-2019-1551
+RUN apk add --upgrade --no-cache --repository http://dl-cdn.alpinelinux.org/alpine/edge/main openssl
 
 ADD data/ /
 
