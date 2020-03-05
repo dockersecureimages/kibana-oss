@@ -1,5 +1,5 @@
-### Kibana does not support the current Node.js version v10.15.2. Please use Node.js v10.18.0.
-FROM node:10.18.0-alpine3.11
+### Kibana does not support the current Node.js version v10.18.0. Please use Node.js v10.19.0.
+FROM node:10.19.0-alpine3.11
 LABEL website="Secure Docker Images https://secureimages.dev"
 LABEL description="We secure your business from scratch."
 LABEL maintainer="hireus@secureimages.dev"
