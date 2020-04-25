@@ -2,7 +2,7 @@
 
 Kibana OSS, image is based on the Alpine base image with 0 vulnerabilities.
 
-## Current Docker image
+## Current Docker image (~394MB)
 
 Security scanning using Clair
 ```
@@ -32,7 +32,7 @@ secureimages/kibana-oss:7.6.2-alpine-3.11.5 (alpine 3.11.5)
 Total: 0 (UNKNOWN: 0, LOW: 0, MEDIUM: 0, HIGH: 0, CRITICAL: 0)
 ```
 
-## Official Docker image
+## Official Docker image (~647MB)
 
 [https://www.docker.elastic.co/](https://www.docker.elastic.co/)
 ```
