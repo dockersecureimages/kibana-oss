@@ -4,10 +4,10 @@ LABEL website="Secure Docker Images https://secureimages.dev"
 LABEL description="We secure your business from scratch."
 LABEL maintainer="hireus@secureimages.dev"
 
-ARG KIBANA_VERSION=7.7.0
+ARG KIBANA_VERSION=7.7.1
 ARG TARBALL_ASC="https://artifacts.elastic.co/downloads/kibana/kibana-oss-${KIBANA_VERSION}-linux-x86_64.tar.gz.asc"
-### https://artifacts.elastic.co/downloads/kibana/kibana-oss-7.6.2-linux-x86_64.tar.gz.sha512
-ARG TARBALL_SHA="ed29806990a032abfeca747edcf9162f4704be5774bbe394bbe6b34c5614c97e27a900a64e9b6e7b242767bdf31729c34903c86e9708fb066f83d8df76966152"
+### https://artifacts.elastic.co/downloads/kibana/kibana-oss-7.7.1-linux-x86_64.tar.gz.sha512
+ARG TARBALL_SHA="7bf5deb3eed503ca988baba63fbb977f38fb9ff57089fa47fafef6bb33e0e70a9368a8ccf6c7a651c88311c56b08459af43566e76af3103c8a4c0da51bce5097"
 ARG GPG_KEY="46095ACC8548582C1A2699A9D27D666CD88E42B4"
 
 ENV PATH=/usr/share/kibana/bin:$PATH
