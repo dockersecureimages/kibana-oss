@@ -1,15 +1,19 @@
-FROM node:10.21.0-alpine3.11
+FROM node:10.22.0-alpine3.11
 LABEL website="Secure Docker Images https://secureimages.dev"
 LABEL description="We secure your business from scratch."
 LABEL maintainer="hireus@secureimages.dev"
 
-ARG KIBANA_VERSION=7.8.1
+ARG KIBANA_VERSION=7.9.1
 ARG TARBALL_ASC="https://artifacts.elastic.co/downloads/kibana/kibana-oss-${KIBANA_VERSION}-linux-x86_64.tar.gz.asc"
-### https://artifacts.elastic.co/downloads/kibana/kibana-oss-7.8.1-linux-x86_64.tar.gz.sha512
-ARG TARBALL_SHA="381e467cb6f18892a5d5403e6eab640ffaf6ae2b76bc3e52eb94a377bf773e7dee631d0dc72162e276eafbc10c9c70629c106d25707921b32d2ebb18f69315ba"
+### https://artifacts.elastic.co/downloads/kibana/kibana-oss-7.9.1-linux-x86_64.tar.gz.sha512
+ARG TARBALL_SHA="914aff3cdb69d769d466cbaf7b736cd74317643e6e328e8f9fcdcdb12fd0a40581bdccdd4993b9a8b1b5792b918b369a9976b500057bf75c0e09c448178cc5b7"
 ARG GPG_KEY="46095ACC8548582C1A2699A9D27D666CD88E42B4"
 
 ENV PATH=/usr/share/kibana/bin:$PATH
+
+# fixing CVE-2019-15847
+RUN apk add --upgrade --no-cache libgcc libstdc++ ;\
+    rm -rf /var/cache/apk/* /tmp/*
 
 RUN apk add --no-cache bash su-exec ;\
     apk add --no-cache -t .build-deps ca-certificates gnupg openssl ;\
