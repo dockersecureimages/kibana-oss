@@ -2,70 +2,76 @@
 
 Kibana OSS, image is based on the Alpine base image with 0 vulnerabilities.
 
-## Current Docker image (~505MB)
+## Current Docker image (~366MB)
 
 Security scanning using Clair
 ```
-clair-scanner secureimages/kibana-oss:7.9.1-alpine-3.11.6
-2020/09/04 15:56:23 [INFO] ▶ Start clair-scanner
-2020/09/04 15:56:31 [INFO] ▶ Server listening on port 9279
-2020/09/04 15:56:31 [INFO] ▶ Analyzing a9cc4ace48cd792ef888ade20810f82f6c24aaf2436f30337a2a712cd054dc97
-2020/09/04 15:56:31 [INFO] ▶ Analyzing 7b8ac32affcc27ca061c9239750dad0d9f6c4dc2e2f3bffe9535a665d49aa5a1
-2020/09/04 15:56:31 [INFO] ▶ Analyzing 6149978933774d46e992feb30831c74c9818366470106c2c7349024ad96f4523
-2020/09/04 15:56:31 [INFO] ▶ Analyzing 34b2f9f124a17126c73ea5eb93f28d44ac1819cb5803a47529eef45de5292070
-2020/09/04 15:56:31 [INFO] ▶ Analyzing 9fe617164063a13d5fec1800acd53634a6ece836048f72967d34453e56fc938f
-2020/09/04 15:56:31 [INFO] ▶ Analyzing 16ab04c38a9528f96f48a4fb34bf35ed419fc3d531823586aeb82dcaab5f94ff
-2020/09/04 15:56:31 [INFO] ▶ Analyzing ba01884378a5817383ed72fc880e5f08907b8f87035e6bc82418f7b9f0f9753c
-2020/09/04 15:56:31 [INFO] ▶ Analyzing d7fe3fa473d99a8e4eb74e9b967091b76abcf8787bcfa0aefa2557c243d298df
-2020/09/04 15:56:31 [INFO] ▶ Image [secureimages/kibana-oss:7.9.1-alpine-3.11.6] contains NO unapproved vulnerabilities
+clair-scanner secureimages/kibana-oss:7.10.2-alpine-3.11.7
+2021/02/20 12:27:10 [INFO] ▶ Start clair-scanner
+2021/02/20 12:27:16 [INFO] ▶ Server listening on port 9279
+2021/02/20 12:27:16 [INFO] ▶ Analyzing 0fa0bac9ca996200ca39a079f7cd6c7aad952393229159774eaa90127a2aa745
+2021/02/20 12:27:17 [INFO] ▶ Analyzing 531b7f6640636ecad0756f752695f297c9c2f36c6863976d0b46790230f55340
+2021/02/20 12:27:17 [INFO] ▶ Analyzing 3741ef4fe22e7f254dd1d9ba83adf6609cbf2abd7c3db53463eaa706b3836d82
+2021/02/20 12:27:18 [INFO] ▶ Analyzing 3f4fc67a936976b7ff70585ba30cc056745a6982154dbc6b8fe72fbce128330b
+2021/02/20 12:27:18 [INFO] ▶ Analyzing 4126ab529f6a2ecc48eae8f66152cbdc942605f564b662f367ead6ddd6532b87
+2021/02/20 12:27:18 [INFO] ▶ Analyzing 09910c390f6b9f41c507f3257c840a34d52c56b2da6a15e4ac45018d213835d1
+2021/02/20 12:27:18 [INFO] ▶ Analyzing 49bebf636e20bcb0d4ac67d90f74653e3f4de165cc9a983c4a3894da04359fca
+2021/02/20 12:27:18 [INFO] ▶ Analyzing 9d87f10e5c8f420e3e8d592c1d1ced90e4e03c6574cf5ca895b4027583634059
+2021/02/20 12:27:18 [INFO] ▶ Image [secureimages/kibana-oss:7.10.2-alpine-3.11.7] contains NO unapproved vulnerabilities
 ```
 
 Security scanning using Trivy
 ```
-docker run --rm -v /var/run/docker.sock:/var/run/docker.sock:ro aquasec/trivy:0.11.0 --no-progress secureimages/kibana-oss:7.9.1-alpine-3.11.6
-2020-09-04T15:56:34.564Z        INFO    Need to update DB
-2020-09-04T15:56:34.564Z        INFO    Downloading DB...
-2020-09-04T15:56:47.945Z        INFO    Detecting Alpine vulnerabilities...
+docker run --rm -v /var/run/docker.sock:/var/run/docker.sock:ro aquasec/trivy:0.16.0 --no-progress secureimages/kibana-oss:7.10.2-alpine-3.11.7
+2021-02-20T12:27:19.866Z        INFO    Need to update DB
+2021-02-20T12:27:19.866Z        INFO    Downloading DB...
+2021-02-20T12:27:28.546Z        INFO    Detecting Alpine vulnerabilities...
+2021-02-20T12:27:28.547Z        INFO    Trivy skips scanning programming language libraries because no supported file was detected
 
-secureimages/kibana-oss:7.9.1-alpine-3.11.6 (alpine 3.11.6)
-===========================================================
+secureimages/kibana-oss:7.10.2-alpine-3.11.7 (alpine 3.11.7)
+============================================================
 Total: 0 (UNKNOWN: 0, LOW: 0, MEDIUM: 0, HIGH: 0, CRITICAL: 0)
 ```
 
-## Official Docker image (~698MB)
+## Official Docker image (~674MB)
 
 [https://www.docker.elastic.co/](https://www.docker.elastic.co/)
 ```
-docker pull docker.elastic.co/kibana/kibana-oss:7.9.1
+docker pull docker.elastic.co/kibana/kibana-oss:7.10.2
 ```
 
 Security scanning using Clair
 ```
-clair-scanner docker.elastic.co/kibana/kibana-oss:7.9.1
-2020/09/04 15:57:07 [INFO] ▶ Start clair-scanner
-2020/09/04 15:57:22 [INFO] ▶ Server listening on port 9279
-2020/09/04 15:57:22 [INFO] ▶ Analyzing 33b5e87a65b65985a0445827bd27436b3467bb578d1b1cc2aa0b6000685fb4bf
-2020/09/04 15:57:22 [INFO] ▶ Analyzing c06f3c44565f6e71cd152af3c0ac5fffd9139c75fe05498f04498535a5484dbf
-2020/09/04 15:57:24 [INFO] ▶ Analyzing 08dad683e81975b51a7e97775e1901dc29c5483e301b4f787eee93dc4a4a46b4
-2020/09/04 15:57:24 [INFO] ▶ Analyzing e98bdb5ee0bf173430b2ff022749dffd11e89d0f42c1ae034eec8f1821c8bbad
-2020/09/04 15:57:24 [INFO] ▶ Analyzing a1f99da55bd81ab7d66ce6d393b8ece6c97438eed8908a93e58fb9ddb96df629
-2020/09/04 15:57:25 [INFO] ▶ Analyzing 1d8e7a78e08c7d9820fae25057078705f61228762c0cc959b87a61b88ddb6c10
-2020/09/04 15:57:25 [INFO] ▶ Analyzing 95f07ad9aeccdc78146417b3e061760513060d210220ed9088af58d6f0b8be4e
-2020/09/04 15:57:25 [INFO] ▶ Analyzing 578e640e9c87de4fc9a0e3f0d2a544603f67229802b921aaabc1379b56ae5a6e
-2020/09/04 15:57:25 [INFO] ▶ Analyzing 095732dfa30f404c6e77cbc573d3e4471d16c095555526e29ba7daa693d1da12
-2020/09/04 15:57:25 [INFO] ▶ Analyzing c35bc212382791e9d04ee3255ec42d3fb97cb93393052403537d1cceb3c87855
-2020/09/04 15:57:25 [INFO] ▶ Analyzing da8a4149ca8a211e38525d71278143d83f62b6293348cad4676dbaabd0364748
-2020/09/04 15:57:25 [INFO] ▶ Image [docker.elastic.co/kibana/kibana-oss:7.9.1] contains NO unapproved vulnerabilities
+clair-scanner docker.elastic.co/kibana/kibana-oss:7.10.2
+2021/02/20 12:27:32 [INFO] ▶ Start clair-scanner
+2021/02/20 12:27:43 [INFO] ▶ Server listening on port 9279
+2021/02/20 12:27:43 [INFO] ▶ Analyzing b5ad3981919b474c18caec8885fc124b01bc7c3e7fa19738cbfae253a22d4a16
+2021/02/20 12:27:47 [INFO] ▶ Analyzing 0bbabf8413eabcdc5285573c52071123d3c203999fadb48add5f78a5b0737442
+2021/02/20 12:27:48 [INFO] ▶ Analyzing 39114b2ade0d67cae59fc2cd1f1ecca5a7cc72b490fed65c35924d02bc862de9
+2021/02/20 12:27:48 [INFO] ▶ Analyzing bab840dccba14f1304bcaccc124bd29bed1b389c4181c8c448550f82f9c10106
+2021/02/20 12:27:48 [INFO] ▶ Analyzing 34cea87a77117b8dc7efe2161352b1cfe20cf617e2d2c2e7b052ae5b1edd735c
+2021/02/20 12:27:48 [INFO] ▶ Analyzing 802254dfb2ca21ff8bea2822fcd69a53bbd1025d543494a48bd3f7b68bc4a0ac
+2021/02/20 12:27:48 [INFO] ▶ Analyzing 99035b1c43b7fe2b7b57fefeb5a761308c2c40851211a840ba24e07d4c52e857
+2021/02/20 12:27:48 [INFO] ▶ Analyzing ce93d76915f2aa9700b5a940387f7db4132b38a161d062cb7a07f897784603a7
+2021/02/20 12:27:48 [INFO] ▶ Analyzing d5f02ed18f7193dd73da68b6157210321a454918fcee1952dfeee38f3fbb90cd
+2021/02/20 12:27:48 [INFO] ▶ Analyzing 44f37ad949c2f22a452d62ab85a3400ef62238389a28f3e6dda9145d7dec5a8f
+2021/02/20 12:27:48 [INFO] ▶ Analyzing 0816ebec19ccaddb8a4754e40cf51b5d712a54be22a7e5bd59ff67497a3df2fa
+2021/02/20 12:27:48 [INFO] ▶ Analyzing 75291ab4c7f55f172cd13dc3dfcf2773a24ba422a04de7956616d311a91defa3
+2021/02/20 12:27:48 [INFO] ▶ Analyzing 17df7d2498803ed25582a07faebf4f04e77d87b44f1e136b4ae932a35800a066
+2021/02/20 12:27:48 [INFO] ▶ Analyzing 3eace872e8fb72ffb9ae0765b4c965198d0a36e12c13e9c9d444dcd4ec830f5f
+2021/02/20 12:27:48 [WARN] ▶ Image [docker.elastic.co/kibana/kibana-oss:7.10.2] contains 5 total vulnerabilities
+2021/02/20 12:27:48 [ERRO] ▶ Image [docker.elastic.co/kibana/kibana-oss:7.10.2] contains 5 unapproved vulnerabilities
 ```
 
 Security scanning using Trivy
 ```
-docker run --rm -v /var/run/docker.sock:/var/run/docker.sock:ro aquasec/trivy:0.11.0 --no-progress docker.elastic.co/kibana/kibana-oss:7.9.1
-2020-09-04T15:57:27.111Z        INFO    Need to update DB
-2020-09-04T15:57:27.111Z        INFO    Downloading DB...
-2020-09-04T15:57:43.626Z        INFO    Detecting RHEL/CentOS vulnerabilities...
+docker run --rm -v /var/run/docker.sock:/var/run/docker.sock:ro aquasec/trivy:0.16.0 --no-progress docker.elastic.co/kibana/kibana-oss:7.10.2
+2021-02-20T12:27:50.360Z        INFO    Need to update DB
+2021-02-20T12:27:50.360Z        INFO    Downloading DB...
+2021-02-20T12:28:07.316Z        INFO    Detecting RHEL/CentOS vulnerabilities...
+2021-02-20T12:28:07.322Z        INFO    Trivy skips scanning programming language libraries because no supported file was detected
 
-docker.elastic.co/kibana/kibana-oss:7.9.1 (centos 7.8.2003)
-===========================================================
-Total: 646 (UNKNOWN: 0, LOW: 372, MEDIUM: 269, HIGH: 5, CRITICAL: 0)
+docker.elastic.co/kibana/kibana-oss:7.10.2 (centos 8.3.2011)
+============================================================
+Total: 263 (UNKNOWN: 0, LOW: 100, MEDIUM: 155, HIGH: 8, CRITICAL: 0)
 ```
